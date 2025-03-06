@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics E-commerce</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-gray-800 text-white p-4">
+        <ul class="flex justify-center space-x-6">
+            <li><a href="./index.html" class="hover:text-yellow-300">Home</a></li>
+            <li><a href="./src/pages/about/about.html" class="hover:text-yellow-300">About us</a></li>
+            <li><a href="./src/pages/contact/contact.html" class="hover:text-yellow-300">Contact us</a></li>
+            <li><a href="./product/product.html" class="hover:text-yellow-300">Products</a></li>
+            <li><a href="./product/checkout.html" class="hover:text-yellow-300">Order Now</a></li>
+            <li><a href="./product/product_detail.html" class="hover:text-yellow-300">Product Details</a></li>
+        </ul>
+    </nav>
+
+    <h3 class="text-3xl font-bold text-center my-6">Electronics E-commerce</h3>
+
+    <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+            <div class="w-full flex-shrink-0">
+                <img src="./assets/image/Image1.jpeg" alt="Image 1" class="w-full h-96 object-cover">
+            </div>
+            <div class="w-full flex-shrink-0">
+                <img src="./assets/image/Image2.jpeg" alt="Image 2" class="w-full h-96 object-cover">
+            </div>
+            <div class="w-full flex-shrink-0">
+                <img src="./assets/image/Image3.jpeg" alt="Image 3" class="w-full h-96 object-cover">
+            </div>
+        </div>
+
+        <button onclick="moveSlide(-1)" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full hover:bg-gray-700 transition">◀</button>
+        <button onclick="moveSlide(1)" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full hover:bg-gray-700 transition">▶</button>
+    </div>
+
+    <div class="text-center mt-6 p-4">
+        <img src="https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png" alt="Store Image" class="mx-auto w-80 h-60 object-cover">
+        <p class="mt-4 text-lg font-light">Creating an e-commerce website for Home Appliances, Electronics, and more.</p>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('#carousel > div').length;
+
+        function moveSlide(direction) {
+            if ((direction === -1 && currentSlide > 0) || (direction === 1 && currentSlide < totalSlides - 1)) {
+                currentSlide += direction;
+                const offset = -currentSlide * 100;
+                document.getElementById('carousel').style.transform = `translateX(${offset}%)`;
+            }
+        }
+    </script>
+</body>
+</html>
